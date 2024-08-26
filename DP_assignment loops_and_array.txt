@@ -1,0 +1,364 @@
+Q1. 1 1 2 3 5 8 13 .....
+    a=1 b=1 c =a+b 
+
+Ans. #include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int a = 1, b = 1, c;
+    cout << a << " " << b << " ";
+
+    for (int i = 3; i < 8; i++)
+    {
+        c = a + b;
+        cout << c << " ";
+        a = b;
+        b = c;
+    }
+    return 0;
+}
+
+Q2. 1 2 2 4 8 32 ....
+   a=1 b=2 c =a*b
+
+Ans.#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int a = 1, b = 2, c;
+    cout << a << " " << b << " ";
+    for (int i = 2; i < 6; i++)
+    {
+        c = a * b;
+        cout << c << " ";
+        a = b;
+        b = c;
+    }
+    return 0;
+}
+
+Q3. 1 2 3 6 11 20 ....
+    a=1 b=2 c=3  d =a+b+c
+
+Ans. #include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int a = 1, b = 2, c = 3, d;
+    cout << a << " " << b << " " << c << " ";
+    for (int i = 4; i <= 6; i++)
+    {
+        d = a + b + c;
+        cout << d << " ";
+        a = b;
+        b = c;
+        c = d;
+    }
+    return 0;
+}
+
+Q4.1 2 4 8 32 ....
+    a=1 b=2 c= power of 2
+
+Ans. #include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int a = 1, b = 2, c;
+    cout << a << " " << b << " ";
+    for (int i = 2; i <= 5; i++)
+    {
+        c = pow(2, i);
+        cout << c << " ";
+    }
+    return 0;
+}
+
+Q5. 1 2 3 6 18 .....
+    a =1 b=2 c=3 d =c*b
+
+Ans. #include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int a = 1, b = 2, c = 3, d;
+    cout << a << " " << b << " " << c << " ";
+    for (int i = 1; i <= 2; i++)
+    {
+        d = b * c;
+        cout << d << " ";
+        b = c;
+        c = d;
+    }
+    return 0;
+}
+
+Q6. there are four variables a = 1 b= 2 c= 3 c=4
+    formulate  1 2 3 4 5 7 9 12 16  and so on
+
+Ans. #include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int arr[9];
+    arr[0] = 1;
+    arr[1] = 2;
+    arr[2] = 3;
+    arr[3] = 4;
+
+    for (int i = 4; i < 9; i++)
+    {
+        arr[i] = arr[i - 3] + arr[i - 2];
+    }
+
+    for (int i = 0; i < 9; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
+
+Q7. 1 2 4 7 12 20...
+    Variables: a=1, b=2, c=a+b+1
+    Formula: The additon between consecutive terms increases by 1.
+
+Ans. Approch 1: -#include <bits/stdc++.h>
+using namespace std;
+
+int main() {  
+    int prev1 = 1, prev2 = 2, current;
+
+    cout << prev1 << " " << prev2 << " ";
+
+    for(int i = 0; i <4; i++){
+        current = prev1 + prev2 + 1;
+        cout << current << " ";
+        prev1 = prev2;
+        prev2 = current;
+    }
+
+    return 0;
+}
+
+Approch 2 :- #include <bits/stdc++.h>
+using namespace std;
+
+void  printSeries(int arr[], int n){
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+}
+
+int main() {
+    int arr[6];
+    int sizeOfArr = sizeof(arr)/sizeof(arr[0]);
+    arr[0] = 1;
+    arr[1] = 2;
+
+    for(int i = 2; i < sizeOfArr; i++){
+        arr[i] = arr[i-2] + arr[i-1] + 1;
+    }
+
+    printSeries(arr, sizeOfArr);
+
+    return 0;
+}
+
+Q8. Modified Tribonacci Sequence
+    Sequence: 1, 1, 2, 4, 7, 13, ...
+    Formulation: a = 1, b = 1, c = 2, d = a + b + c
+    DP Problem: Solve for the nth term where each term is the sum of the previous three terms.
+
+Ans. Approch 1 :- #include <bits/stdc++.h>
+using namespace std;
+
+int main() { 
+    int prev1 = 1, prev2 = 1, prev3 = 2, current;
+
+    cout << prev1 << " " << prev2 << " " << prev3 << " ";
+
+    for(int i = 0; i < 3; i++){
+        current = prev1 + prev2 + prev3;
+        cout << current << " ";
+        prev1 = prev2;
+        prev2 = prev3;
+        prev3 = current;
+    }
+
+    return 0;
+}
+
+Approch 2 :- #include <bits/stdc++.h>
+using namespace std;
+
+void  printSeries(int arr[], int n){
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+}
+
+int main() {
+    int arr[6];
+    int sizeOfArr = sizeof(arr)/sizeof(arr[0]);
+    arr[0] = 1;
+    arr[1] = 1;
+    arr[2] = 2;
+
+    for(int i = 3; i < sizeOfArr; i++){
+        arr[i] = arr[i-3] + arr[i-2] + arr[i-1];
+    }
+
+    printSeries(arr, sizeOfArr);
+
+    return 0;
+}
+
+
+Q9.  Sum of Odd and Even Index Terms
+     Sequence: 1, 2, 5, 10, 17, 26, ...
+     Formulation: a = 1, b = a + even index numbers
+     DP Problem: Use dynamic programming to calculate the nth term where the 
+     pattern is determined by the sum of even and odd indexed numbers. 
+
+Ans. Approch 1 :- #include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int prev1 = 1, current;
+
+    cout << prev1 << " ";
+
+    for(int i = 1; i <= 5; i++){
+        current = prev1 + (i*i);
+        cout << current << " ";
+    }
+
+    return 0;
+}
+
+Approch 2 :- #include <bits/stdc++.h>
+using namespace std;
+
+void  printSeries(int arr[], int n){
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+}
+
+int main() {  
+    int arr[6];
+    int sizeOfArr = sizeof(arr)/sizeof(arr[0]);
+    arr[0] = 1;
+
+    for(int i = 1; i < sizeOfArr; i++){
+        arr[i] = arr[0] + (i*i);
+    }
+
+    printSeries(arr, sizeOfArr);
+
+    return 0;
+}
+
+
+
+Q10.  Double Product Sequence
+      Sequence: 1, 3, 6, 36 ...
+      Formulation: a = 1, b = 3, c = a * b * 2
+      Problem: Find the nth term where each term is the product of the 
+      previous two, doubled.
+
+Ans. Approch 1 : -#include <bits/stdc++.h>
+using namespace std;
+
+int main() { 
+    int prev1 = 1, prev2 = 3, current;
+
+    cout << prev1 << " " << prev2 << " ";
+
+    for(int i = 1; i <= 2; i++){
+        current = (prev1 * prev2) + (prev1 * prev2);
+        cout << current << " ";
+        prev1 = prev2;
+        prev2 = current;
+    }
+
+    return 0;
+}
+
+Approch 2 :- #include <bits/stdc++.h>
+using namespace std;
+
+void  printSeries(int arr[], int n){
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+}
+
+int main() { 
+    int arr[4];
+    int sizeOfArr = sizeof(arr)/sizeof(arr[0]);
+    arr[0] = 1;
+    arr[1] = 3;
+
+    for(int i = 2; i < sizeOfArr; i++){
+        arr[i] = (arr[i-2] * arr[i-1]) + (arr[i-2] * arr[i-1]);
+    }
+
+    printSeries(arr, sizeOfArr);
+
+    return 0;
+}
+
+Q11. Geometric Progression
+     Sequence: 1, 3, 9, 27, 81, ...
+     Formulation: a = 1, b = a * 3
+     Problem: Calculate the nth term where each term is triple the 
+     previous
+
+Ans. Approch 1 :- #include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int prev1 = 1, current;
+
+    cout << prev1 << " ";
+
+    for(int i = 1; i <= 5; i++){
+        current = prev1 * 3;
+        cout << current << " ";
+        prev1 = current;
+    }
+
+    return 0;
+}
+
+Approch 2 :- #include <bits/stdc++.h>
+using namespace std;
+
+void  printSeries(int arr[], int n){
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+}
+
+int main() {
+    int arr[5];
+    int sizeOfArr = sizeof(arr)/sizeof(arr[0]);
+    arr[0] = 1;
+
+    for(int i = 1; i < 5; i++){
+        arr[i] = arr[i-1] * 3;
+    }
+
+    printSeries(arr, sizeOfArr);
+
+    return 0;
+}
+
+
